@@ -10,12 +10,14 @@ var path = require('path');
                 return `${info.timestamp} ${info.level}: ${info.message}`;
             })
         ),
-        transports: [new winston.transports.Console(),
+        transports: [new winston.transports.Console(),   // this line is used to log in console
             new winston.transports.File({
-                filename: path.join(__dirname, '../logs', 'app.log'),
+                filename: path.join(__dirname, '../logs', 'app.log'),       // this line is used to write logs in app.log inside logs folder
             })
         ],
         json: true,
     });
 
+ /*now to write log use below code in any router or place where you want logs
  
+ logger.log('info', 'A request was received'); */
